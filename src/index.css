@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Lora", serif;
+  
+  --color-beige: #FFF5E1;
+  --color-espresso: #1D1D1D;
+  --color-coffee: #D4A373;
+  --color-cream: #FFFFFF;
+}
+
+@layer base {
+  body {
+    @apply bg-beige text-espresso font-sans antialiased;
+  }
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1.2fr 0.8fr 1fr;
+    grid-template-rows: repeat(3, minmax(200px, auto));
+  }
+}
+
+.bento-item {
+  @apply bg-cream rounded-[32px] p-6 flex flex-col justify-between overflow-hidden relative shadow-sm transition-all duration-300;
+}
+
+.bento-item:hover {
+  @apply shadow-md scale-[1.01];
+}
+
+.food-img-hover {
+  @apply transition-transform duration-500 hover:scale-105;
+}
+
+.btn-primary {
+  @apply bg-espresso text-beige px-8 py-3 rounded-full font-display font-bold transition-all hover:opacity-90 active:scale-95 text-center;
+}
+
+.btn-secondary {
+  @apply border-2 border-espresso text-espresso px-8 py-3 rounded-full font-display font-bold transition-all hover:bg-espresso hover:text-beige active:scale-95 text-center;
+}
+
+.btn-white {
+  @apply bg-white text-espresso px-8 py-3 rounded-full font-display font-bold transition-all hover:bg-beige active:scale-95 text-center;
+}
